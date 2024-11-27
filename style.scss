@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Importing Bootstrap and Basic Requirements
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+
+// Color Variables
+$color-black: #000000;
+$color-white: #ffffff;
+$color-dark: #2c3e50;
+
+$color-green-ocean: #18889c;
+$color-blue-dark: #2c3e50;
+$color-grey: #F8F3EF;
+$color-pumpkin: #d35400;
+
+$color-warning: #f1c40f;
+$color-danger: #e74c3c;
+$color-success: #2ecc71;
+
+
+// Font Weights
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-sBold: 600;
+$fw-bold: 700;
+
+
+// Font Variables
+$font-regular: "Montserrat", sans-serif;
+
+
+// Animation Timing
+$time-veryfast: .25s;
+$time-fast: .5s;
+$time-normal: .75s;
+$time-slow: 1s;
+
+
+body{
+    font-family: $font-regular;
+    margin: 0;
+    padding: 15px;
+    font-size: 16px;
+    color: $color-dark;
+    @include media-breakpoint-up('sm'){
+        padding: 20px;
+    }
+}
+ul, li, ol, dl, dt, dd, form, p, img, video a, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+h1, h2, h3, h4, h5, h6{
+    font-weight: $fw-medium;
+}
+button:focus, video:focus, input:focus, textarea:focus, select:focus, select:focus-visible{
+    outline: none!important;
+    outline-width: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+::selection{
+    background-color: $color-green-ocean; 
+    color: $color-white;
+}
+:focus{
+    outline: 0!important;
+}
+*{
+    box-sizing: border-box;
+}
+a, label, span, ul, input, textarea, button, div, li, ol, p{
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+button{
+    cursor: pointer;
+}
+input, select, textarea, button{
+    font-family: $font-regular;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+}
+input, textarea {
+    font-size: 16px;
+    @include media-breakpoint-up('md'){
+        font-size: 15px;
+    }
+}
+svg, picture, img{
+    display: block;
+}
+
+h1{
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h2{
+    font-size: 28px;
+    padding-bottom: 15px;
+}
+
+h3{
+    margin-bottom: 20px;
+}
+
+h3 span{
+    color: $color-danger;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+p{
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.table-container{
+    width: 100%;
+    max-width: 800px;
+    overflow-x: auto;
+    font-size: 12px;
+    margin-bottom: 30px;
+    @include media-breakpoint-up('md'){
+        max-width: none;
+        overflow-x: visible;
+        font-size: 13px;
+    }
+}
+
+table strong{
+    font-weight: 600;
+}
+
+table{
+    width: 100%;
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+}
+
+table th{
+    background-color: #bdc3c7;
+}
+
+table td, table th{
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    padding: 8px 15px;
+    text-align: left;
+}
+
+table tr:nth-child(2n+2){
+    background-color: #f0f0f0;
+}
+
+.four-col {
+    font-size: 14px;
+}
+.four-col tr td:nth-child(2n+1){
+    font-weight: 600;
+    color: #c0392b;
+}
+
+.table-center td, .table-center th{
+    text-align: center;
+}
+
+// Menu
+.menu{
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    @include media-breakpoint-up('xl'){
+        max-width: none;
+    }
+    &__word{
+        background-color: $color-green-ocean;
+        color: $color-white;
+        height: 50px;
+        padding: 0 20px;
+        border-radius: 6px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include media-breakpoint-up('xl'){
+            display: none;
+        }
+        &__lines{
+            display: flex;
+            flex-direction: column;
+            span{
+                width: 18px;
+                height: 3px;
+                background-color: $color-white;
+                border-radius: 5px;
+                &:nth-child(1){
+                    transform-origin: top right;
+                    transition: transform $time-fast;
+                }
+                &:nth-child(2){
+                    opacity: 1;
+                    margin: 3px 0;
+                    transition: opacity $time-fast;
+                }
+                &:nth-child(3){
+                    transform-origin: bottom right;
+                    transition: transform $time-fast;
+                }
+            }
+        }
+        &.active{
+            .menu__word__lines{
+                span{
+                    &:nth-child(1){
+                        transform: rotate(-45deg);
+                    }
+                    &:nth-child(2){
+                        opacity: 0;
+                    }
+                    &:nth-child(3){
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+    }
+    &__dropdown{
+        position: absolute;
+        top: 51px;
+        left: 0;
+        z-index: 1;
+        background-color: $color-blue-dark;
+        color: $color-white;
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 100%;
+        display: none;
+        @include media-breakpoint-up('xl'){
+            position: static;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: transparent;
+        }
+        &__link{
+            color: $color-white;
+            display: block;
+            padding: 6px 15px;
+            font-size: 15px;
+            @include media-breakpoint-up('xl'){
+                font-size: 14px;
+                font-weight: $fw-medium;
+                background-color: $color-pumpkin;
+                padding: 10px 15px;
+                border-radius: 5px;
+                margin-right: 10px;
+                transition: background-color $time-fast;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+            &:hover{
+                @include media-breakpoint-up('xl'){
+                    background-color: $color-blue-dark;
+                }
+            }
+            &.active{
+                color: $color-success;
+                pointer-events: none;
+                font-weight: $fw-medium;
+                @include media-breakpoint-up('xl'){
+                    background-color: $color-green-ocean;
+                    color: $color-white;
+                    font-weight: $fw-regular;
+                }
+            }
+        }
+    }
+}
+
+// Menu Toggle
+.menu-toggle{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    &__item{
+        margin-left: 10px;
+        font-size: 14px;
+        font-weight: $fw-medium;
+        background-color: $color-grey;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color $time-fast, color $time-fast;
+        &:hover{
+            @include media-breakpoint-up('xl'){
+                background-color: $color-green-ocean;
+                color: $color-white;
+            }
+        }
+        &.active{
+            background-color: $color-pumpkin;
+            color: $color-white;
+            pointer-events: none;
+        }
+    }
+}
+
+// Content Block
+.contentBlock{
+    &.both{
+        @include media-breakpoint-up('xl'){
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .contentBlock__block{
+            @include media-breakpoint-up('xl'){
+                flex: 1;
+            }
+        }
+    }
+    &__block{
+        border: 2px solid $color-dark;
+        padding: 20px;
+        margin-bottom: 20px;
+        @include media-breakpoint-up('xl'){
+            padding: 30px;
+        }
+        &.hidden{
+            display: none;
+        }
+        &__title{
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: $color-pumpkin;
+            @include media-breakpoint-up('md'){
+                font-size: 24px;
+            }
+            @include media-breakpoint-up('xl'){
+                font-size: 28px;
+            }
+        }
+        p{
+            margin-bottom: 15px;
+            line-height: 1.6;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
