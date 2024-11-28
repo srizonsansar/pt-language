@@ -1,3 +1,4 @@
+<?php $active = 'time-pass'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,21 +14,7 @@
 
         <h1>Your Favorite Time Pass</h1>
 
-        <div class="menu">
-            <div class="menu__word">
-                <div class="menu__word__text">Menu</div>
-                <div class="menu__word__lines">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div class="menu__dropdown">
-                <a href="/pt" class="menu__dropdown__link">Basic Words</a>
-                <a href="introduction" class="menu__dropdown__link">Introduction</a>
-                <a href="timepass" class="menu__dropdown__link active">Favorite Time Pass</a>
-            </div>
-        </div>
+        <?php include('nav.php') ?>
 
         <div class="container">
 
@@ -39,15 +26,15 @@
 
            <div class="contentBlock">
                 <div id="pt-block" class="contentBlock__block">
-                    <div class="contentBlock__block__title">Passe de tempo favorito</div>
+                    <div class="contentBlock__block__title">Qual e o seu passa tempo favorito?</div>
                     <div class="contentBlock__block__text">
-                        <p>No meu tempo livre, brinco com o meu telemóvel, vejo televisão e faço caminhadas. No entanto, às vezes gosto de ler jornais e livros.</p>
+                        <p>O meu passatempo favorito é visitar os lugares e diferentecidade. Porque, durante a semnana eu perciso de trabalhar 10 horas por dia e 6 dias per semana. Além disso, eu gosto de ir à praia  e conchecer as culturas porque eu sou uma pessoa que gostava de conchecer as pessoas. Quando eu fiver o timep ficarei na casa pots estoucansado por cause de trabalho e faço a conversa com a minha familia.</p>
                     </div>
                 </div>
                 <div id="en-block" class="contentBlock__block hidden">
-                    <div class="contentBlock__block__title">Favorite Time Pass</div>
+                    <div class="contentBlock__block__title">What is your favorite time pass?</div>
                     <div class="contentBlock__block__text">
-                        <p>In my free time, I play with my mobile, watch television, and go for walks. However, sometimes I enjoy reading newspapers and books.</p>
+                        <p>My favorite pastime is visiting different places and cities. Because, during the week I need to work 10 hours a day and 6 days a week. Besides, I like going to the beach and getting to know cultures because I'm a person who likes to get to know people. When I have time, I'll stay at home because I'm tired because of work and I'll talk to my family.</p>
                     </div>
                 </div>
            </div>

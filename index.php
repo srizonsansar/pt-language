@@ -1,3 +1,4 @@
+<?php $active = 'home-page'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,21 +13,7 @@
     <body>
         <h1>Learning Portuguese Language</h1>
 
-        <div class="menu">
-            <div class="menu__word">
-                <div class="menu__word__text">Menu</div>
-                <div class="menu__word__lines">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div class="menu__dropdown">
-                <a href="/pt" class="menu__dropdown__link active">Basic Words</a>
-                <a href="introduction" class="menu__dropdown__link">Introduction</a>
-                <a href="timepass" class="menu__dropdown__link">Favorite Time Pass</a>
-            </div>
-        </div>
+        <?php include('nav.php') ?>
 
         <div class="container">
 

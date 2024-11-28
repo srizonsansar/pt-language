@@ -1,10 +1,10 @@
-<?php $active = 'intro-page'; ?>
+<?php $active = 'last-week'; ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Introduction : Learning basis Portuguese Language</title>
+        <title>Favorite Time Pass : Learning basis Portuguese Language</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css?v=<?php echo date('mdHi') ?>">
@@ -12,7 +12,7 @@
     </head>
     <body>
 
-        <h1>Self Introduction in Portuguese</h1>
+        <h1>Your Favorite Time Pass</h1>
 
         <?php include('nav.php') ?>
 
@@ -26,15 +26,15 @@
 
            <div class="contentBlock">
                 <div id="pt-block" class="contentBlock__block">
-                    <div class="contentBlock__block__title">Apresentar-Se</div>
+                    <div class="contentBlock__block__title">O que voce fez na semana passada?</div>
                     <div class="contentBlock__block__text">
-                        <p>Eu sou Navaraj Subedi. Sou de Chitwan, Nepal. Tenho 37 anos. A minha profissão é Web Developer. Vivo com a minha família em Amadora. Moro em Portugal há 5 anos.</p>
+                        <p>Na semana passada fui visitar um amigo que vive no Porto com a família. Tem um apartamento muito bonito perto do centro da cidade. A família dele é muito simpática, cozinharam-me um prato tradicional português. Damos uma volta pela cidade do Porto. A cidade é muito bonita, limpa e o tempo também estava limpo e soalheiro. Definitivamente visitarei o Porto novamente.</p>
                     </div>
                 </div>
                 <div id="en-block" class="contentBlock__block hidden">
-                    <div class="contentBlock__block__title">Introduce Yourself</div>
+                    <div class="contentBlock__block__title">What did you do last week?</div>
                     <div class="contentBlock__block__text">
-                        <p>I am Navaraj Subedi. I come from Chitwan, Nepal. I am 37 years old. My profession is Web Developer. I live with my family in Amadora. I have been living in Portugal for 5 years.</p>
+                        <p>Last week I went to visit a friend who lives in Porto with his family. He has a very nice apartment near the city center. His family is very friendly, they cooked traditional Portuguese dish for me. We take a round of the Porto city. The city is very beautiful, clean and weather was also bright and sunny. I will definetly visit Porto again.</p>
                     </div>
                 </div>
            </div>

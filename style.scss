@@ -253,7 +253,7 @@ table tr:nth-child(2n+2){
         color: $color-white;
         border-radius: 5px;
         overflow: hidden;
-        padding: 10px 0;
+        padding: 12px 0;
         width: 100%;
         display: none;
         @include media-breakpoint-up('xl'){
@@ -266,7 +266,7 @@ table tr:nth-child(2n+2){
         &__link{
             color: $color-white;
             display: block;
-            padding: 6px 15px;
+            padding: 7px 15px;
             font-size: 15px;
             @include media-breakpoint-up('xl'){
                 font-size: 14px;
