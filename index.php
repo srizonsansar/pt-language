@@ -537,10 +537,10 @@
                             <td><strong>Feminine</strong></td>
                         </tr>
                         <tr>
-                            <td>o</td>
-                            <td>a</td>
-                            <td>os</td>
-                            <td>as</td>
+                            <td>O</td>
+                            <td>A</td>
+                            <td>OS</td>
+                            <td>AS</td>
                         </tr>
                     </tbody>
                 </table>

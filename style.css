@@ -384,6 +384,8 @@ table tr:nth-child(2n+2) {
   background-color: #F8F3EF;
   margin-bottom: 20px;
   display: none;
+  font-size: 15px;
+  font-weight: 500;
 }
 .quizList__item__btn {
   display: none;
