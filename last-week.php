@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Favorite Time Pass : Learning basis Portuguese Language</title>
+        <title>What did you do last week? : Learning basis Portuguese Language</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css?v=<?php echo date('mdHi') ?>">
@@ -12,7 +12,7 @@
     </head>
     <body>
 
-        <h1>Your Favorite Time Pass</h1>
+        <h1>What did you do last week?</h1>
 
         <?php include('nav.php') ?>
 

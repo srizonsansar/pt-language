@@ -11,10 +11,13 @@ $color-black: #000000;
 $color-white: #ffffff;
 $color-dark: #2c3e50;
 
+$color-green: #44bd32;
 $color-green-ocean: #18889c;
+$color-blue: #3498db;
 $color-blue-dark: #2c3e50;
 $color-grey: #F8F3EF;
 $color-pumpkin: #d35400;
+$color-grey-dark: #b2bec3;
 
 $color-warning: #f1c40f;
 $color-danger: #e74c3c;
@@ -370,5 +373,122 @@ table tr:nth-child(2n+2){
                 margin-bottom: 0;
             }
         }
+    }
+}
+
+// Quiz
+.quizList{
+    &__item{
+        display: none;
+        &__quest{
+            background-color: $color-blue;
+            color: $color-white;
+            font-weight: $fw-sBold;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            @include media-breakpoint-up('xl'){
+                font-size: 24px;
+                padding: 14px 20px;
+                margin-bottom: 30px;
+            }
+        }
+        &__hint{
+            text-align: center;
+            border: 2px solid $color-blue-dark;
+            padding: 12px 20px;
+            border-radius: 6px;
+            background-color: $color-grey;
+            margin-bottom: 20px;
+            display: none;
+        }
+        &__btn{
+            display: none;
+            &__link{
+                display: block;
+                width: 100%;
+                max-width: 120px;
+                margin: 0 auto;
+                background-color: $color-green-ocean;
+                color: $color-white;
+                padding: 12px 24px;
+                border-radius: 6px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: $fw-sBold;
+                cursor: pointer;
+                transition: background-color $time-fast;
+                &:hover{
+                    @include media-breakpoint-up('xl'){
+                        background-color: $color-success;
+                    }
+                }
+            }
+        }
+    }
+    &__answers{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 15px;
+        @include media-breakpoint-up('md'){
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        @include media-breakpoint-up('xl'){
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+        &__item{
+            margin-bottom: 10px;
+            background-color: lighten($color-grey-dark, 20%);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            color: $color-black;
+            font-weight: $fw-medium;
+            line-height: 1.5;
+            transition: background-color $time-fast, color $time-fast;
+            cursor: pointer;
+            @include media-breakpoint-up('md'){
+                flex: 1;
+            }
+            @include media-breakpoint-up('xl'){
+                font-size: 18px;
+                padding: 12px 20px;
+            }
+            &.correct{
+                background-color: $color-green;
+                color: $color-white;
+                pointer-events: none;
+            }
+            &.wrong{
+                background-color: $color-danger;
+                color: $color-white;
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.correctAnsCount{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    color: $color-green;
+}
+
+.thankYouMessage{
+    text-align: center;
+    padding: 30px 0;
+    font-size: 24px;
+    font-weight: $fw-medium;
+    color: $color-green;
+    display: none;
+    @include media-breakpoint-up('md'){
+        font-size: 32px;
     }
 }
