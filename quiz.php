@@ -19,7 +19,7 @@
         <?php include('nav.php') ?>
 
         <div class="correctAnsCount">
-            <span class="correct">0</span>&nbsp;Correct Ans Out of&nbsp;<span class="totalplayed">0</span>
+            <span class="correct">0</span>&nbsp;Correct Ans Out of&nbsp;<span class="totalplayed">0</span>&nbsp;Played
         </div>
 
         <div class="container">
@@ -141,12 +141,196 @@
                 </div>
 
                 <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">And</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">e</div>
+                        <div class="quizList__answers__item" data-result="no">é</div>
+                    </div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">Is</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">é</div>
+                        <div class="quizList__answers__item" data-result="no">e</div>
+                    </div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">Yesterday</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">Ontem</div>
+                        <div class="quizList__answers__item" data-result="no">Hoje</div>
+                    </div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">He will</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">Ele vai</div>
+                        <div class="quizList__answers__item" data-result="no">Ela vai</div>
+                    </div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
                     <div class="quizList__item__quest">(The in PT) ______ gato bebe água.</div>
                     <div class="quizList__answers">
                         <div class="quizList__answers__item" data-result="yes">O gato bebe água.</div>
                         <div class="quizList__answers__item" data-result="no">A gato bebe água.</div>
                     </div>
                     <div class="quizList__item__hint">The cat (Gato is Masculine and Singular, so we use O)</div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">The oranges</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">As laranjas</div>
+                        <div class="quizList__answers__item" data-result="no">Os laranjas</div>
+                    </div>
+                    <div class="quizList__item__hint">Laranjas is feminine and plural so we use "AS"</div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">The Cars</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">Os carros</div>
+                        <div class="quizList__answers__item" data-result="no">As carros</div>
+                    </div>
+                    <div class="quizList__item__hint">Carros is masculine plural so we use "OS"</div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">The bread and the orange.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">O pão e a laranja.</div>
+                        <div class="quizList__answers__item" data-result="no">A pão e o laranja.</div>
+                    </div>
+                    <div class="quizList__item__hint">Pão is masculine so we use O <br> Laranja is feminine so we use A</div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">The book, the books</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">O livro, os livros</div>
+                        <div class="quizList__answers__item" data-result="no">A livro, as livros</div>
+                    </div>
+                    <div class="quizList__item__hint">Livro (Book) is masculine so we use O for Singular ans Os For Plural.</div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">Eu leio o livro.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">I read the book.</div>
+                        <div class="quizList__answers__item" data-result="no">I see the book.</div>
+                    </div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">Ela escreve um livro.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">She writes a book.</div>
+                        <div class="quizList__answers__item" data-result="no">He writes a book.</div>
+                    </div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">The boy writes a letter.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">O menino escreve uma carta.</div>
+                        <div class="quizList__answers__item" data-result="no">A menino escreve uma carta.</div>
+                    </div>
+                    <div class="quizList__item__hint">Menino is masculine, so we us O.</div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">Você bebe leite e eu bebo água.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">You drink milk and I drink water.</div>
+                        <div class="quizList__answers__item" data-result="no">I drink milk and you drink water.</div>
+                    </div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">He is a man.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">Ele é um homem</div>
+                        <div class="quizList__answers__item" data-result="no">Ela é uma homem</div>
+                    </div>
+                    <div class="quizList__item__hint">He -> Ele, Homem (Masculine) -> Um</div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">Ele tem a chave.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">He has the key.</div>
+                        <div class="quizList__answers__item" data-result="no">He has the keys.</div>
+                    </div>
+                    <div class="quizList__item__hint">Chave -> Singular</div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">A mulher tem o livro.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">She has the book.</div>
+                        <div class="quizList__answers__item" data-result="no">She finds the book.</div>
+                    </div>
+                    <div class="quizList__item__btn">
+                        <span class="quizList__item__btn__link">Próxima</span>
+                    </div>
+                </div>
+
+                <div id="" class="quizList__item">
+                    <div class="quizList__item__quest">I have a dog and a ball.</div>
+                    <div class="quizList__answers">
+                        <div class="quizList__answers__item" data-result="yes">Tenho um cachorro e uma bola.</div>
+                        <div class="quizList__answers__item" data-result="no">Tenho uma cachorro e um bola.</div>
+                    </div>
+                    <div class="quizList__item__hint">Um cachorro (Masculine) and uma bola (Feminine)</div>
                     <div class="quizList__item__btn">
                         <span class="quizList__item__btn__link">Próxima</span>
                     </div>
