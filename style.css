@@ -2,14 +2,9 @@
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
-  padding: 15px;
+  padding: 0 0 30px;
   font-size: 16px;
   color: #2c3e50;
-}
-@media (min-width: 576px) {
-  body {
-    padding: 20px;
-  }
 }
 
 ul, li, ol, dl, dt, dd, form, p, img, video a, h1, h2, h3, h4, h5, h6 {
@@ -78,9 +73,15 @@ svg, picture, img {
 }
 
 h1 {
+  position: relative;
+  z-index: 1;
   font-size: 32px;
   text-align: center;
-  padding-bottom: 20px;
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 48px;
+  }
 }
 
 h2 {
@@ -98,8 +99,9 @@ h3 span {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 p {
@@ -160,11 +162,43 @@ table tr:nth-child(2n+2) {
   text-align: center;
 }
 
+.banner {
+  position: relative;
+  background: url("header-bg.jpeg") center/cover;
+  margin-bottom: 40px;
+  padding: 50px 20px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+@media (min-width: 768px) {
+  .banner {
+    margin-bottom: 60px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner {
+    min-height: 400px;
+  }
+}
+.banner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .menu {
   position: relative;
   width: 100%;
   max-width: 400px;
   margin: 0 auto 30px;
+  padding: 0 20px;
 }
 @media (min-width: 1200px) {
   .menu {

@@ -12,7 +12,9 @@
     </head>
     <body>
 
-        <h1>Quiz (<span></span> Questions)</h1>
+        <div class="banner">
+            <h1>Quiz (<span></span> Questions)</h1>
+        </div>
 
         <?php include('nav.php') ?>
 

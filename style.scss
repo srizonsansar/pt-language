@@ -46,12 +46,9 @@ $time-slow: 1s;
 body{
     font-family: $font-regular;
     margin: 0;
-    padding: 15px;
+    padding: 0 0 30px;
     font-size: 16px;
     color: $color-dark;
-    @include media-breakpoint-up('sm'){
-        padding: 20px;
-    }
 }
 ul, li, ol, dl, dt, dd, form, p, img, video a, h1, h2, h3, h4, h5, h6{
     margin: 0;
@@ -107,9 +104,13 @@ svg, picture, img{
 }
 
 h1{
+    position: relative;
+    z-index: 1;
     font-size: 32px;
     text-align: center;
-    padding-bottom: 20px;
+    @include media-breakpoint-up('xl'){
+        font-size: 48px;
+    }
 }
 
 h2{
@@ -127,8 +128,9 @@ h3 span{
 
 .container{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 p{
@@ -186,12 +188,41 @@ table tr:nth-child(2n+2){
     text-align: center;
 }
 
+// Banner
+.banner{
+    position: relative;
+    background: url('header-bg.jpeg') center / cover;
+    margin-bottom: 40px;
+    padding: 50px 20px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    @include media-breakpoint-up('md'){
+        margin-bottom: 60px;
+    }
+    @include media-breakpoint-up('xl'){
+        min-height: 400px;
+    }
+    &:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparentize($color-black, .5);
+    }
+}
+
 // Menu
 .menu{
     position: relative;
     width: 100%;
     max-width: 400px;
     margin: 0 auto 30px;
+    padding: 0 20px;
     @include media-breakpoint-up('xl'){
         max-width: none;
     }

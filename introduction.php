@@ -12,7 +12,9 @@
     </head>
     <body>
 
-        <h1>Self Introduction in Portuguese</h1>
+        <div class="banner">
+            <h1>Self Introduction in Portuguese</h1>
+        </div>
 
         <?php include('nav.php') ?>
 
