@@ -205,6 +205,9 @@ table tr:nth-child(2n+2) {
     max-width: none;
   }
 }
+.menu__holder {
+  position: relative;
+}
 .menu__word {
   background-color: #18889c;
   color: #ffffff;

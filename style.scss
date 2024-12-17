@@ -226,6 +226,9 @@ table tr:nth-child(2n+2){
     @include media-breakpoint-up('xl'){
         max-width: none;
     }
+    &__holder{
+        position: relative;
+    }
     &__word{
         background-color: $color-green-ocean;
         color: $color-white;
