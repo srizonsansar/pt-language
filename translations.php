@@ -170,6 +170,61 @@
                     <div class="translationList__item__content translationList__item__content--en">We go to the park in the day off.</div>
                 </div>
 
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Eles vão ao bar para beber as cervejas.</div>
+                    <div class="translationList__item__content translationList__item__content--en">They go to the bar to drink the beers.</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Eu vejo o telemóvel até à meia-noite.</div>
+                    <div class="translationList__item__content translationList__item__content--en">I see the phone until the mid night.</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Tu vejes o televisão à noite ?</div>
+                    <div class="translationList__item__content translationList__item__content--en">Do you see the television at night ?</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Ele vê o computador no meio-dia porque ele está no trabalho.</div>
+                    <div class="translationList__item__content translationList__item__content--en">He sees the computer in the mid day cause he is in the work.</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Nós vemos a tarefa depois do trabalho.</div>
+                    <div class="translationList__item__content translationList__item__content--pt">We see the task after the work.</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Eles veem os roupas quando voltar à loja.</div>
+                    <div class="translationList__item__content translationList__item__content--pt">They see the clothes when they return to the shop.</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Hoje á tarde eu tenho uma marcação.</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Today in the afternoon i have an appointment.</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Tu tens folga hoje ?</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Do you have a off today ?</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Ele tem 25 anos</div>
+                    <div class="translationList__item__content translationList__item__content--pt">He is 25 years old</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Nós temos uma convidade do nosso poís.</div>
+                    <div class="translationList__item__content translationList__item__content--pt">we have a guest from our country.</div>
+                </div>
+
+                <div class="translationList__item">
+                    <div class="translationList__item__content translationList__item__content--pt">Eles têm o dinheiro para pagar.</div>
+                    <div class="translationList__item__content translationList__item__content--pt">They have the money to pay.</div>
+                </div>
+
             </div>
 
             <div class="translationList__next">
