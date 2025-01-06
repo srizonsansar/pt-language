@@ -520,6 +520,14 @@ table tr:nth-child(2n+2) {
   }
 }
 
+.translationCount {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #44bd32;
+  padding-bottom: 40px;
+}
+
 .translationList {
   display: flex;
   flex-wrap: wrap;

@@ -20,6 +20,8 @@ $(document).ready(function() {
     // Show the next item on button click
     let currentData = 1
     let noOfReading = $('.translationList__item').length
+    $('.translationCount span').text(noOfReading)
+
     $('.translationList__next__link').on('click', function() {
         currentData++
         // Find the next hidden item with the lowest order greater than currentOrder

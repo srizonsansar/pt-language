@@ -530,6 +530,13 @@ table tr:nth-child(2n+2){
 }
 
 // Translation List
+.translationCount{
+    text-align: center;
+    font-size: 18px;
+    font-weight: $fw-sBold;
+    color: $color-green;
+    padding-bottom: 40px;
+}
 .translationList{
     display: flex;
     flex-wrap: wrap;
