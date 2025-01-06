@@ -28,15 +28,15 @@
 
            <div class="contentBlock">
                 <div id="pt-block" class="contentBlock__block">
-                    <div class="contentBlock__block__title">O que voce fez na semana passada?</div>
+                    <div class="contentBlock__block__title">O que é que fez na semana passada ?</div>
                     <div class="contentBlock__block__text">
-                        <p>Na semana passada fui visitar um amigo que vive no Porto com a família. Tem um apartamento muito bonito perto do centro da cidade. A família dele é muito simpática, cozinharam-me um prato tradicional português. Damos uma volta pela cidade do Porto. A cidade é muito bonita, limpa e o tempo também estava limpo e soalheiro. Definitivamente visitarei o Porto novamente.</p>
+                        <p>Semana passada não foi muito special mas felizemente eu fui a casa da minha avó onde é que eu jogei (jogar) com os amigos. e visitei (visitar)alguma lugar que nunca fui. Eu e a minha avó fomos (ir) ao restaurante para almoçar ao meio dia. E quando nos voltamos (voltar) à casa. éram (ser) 6 horas à tarde E a minha avó começou (comecar) preparar a comida enquanto eu fui (ir) ao supermercado para fazer as compras que necessidade em casa. Depois disso, nos jantamos juntos às 9 horas à tarde. E fomos (ir) à cama para dormir.</p>
                     </div>
                 </div>
                 <div id="en-block" class="contentBlock__block hidden">
                     <div class="contentBlock__block__title">What did you do last week?</div>
                     <div class="contentBlock__block__text">
-                        <p>Last week I went to visit a friend who lives in Porto with his family. He has a very nice apartment near the city center. His family is very friendly, they cooked traditional Portuguese dish for me. We take a round of the Porto city. The city is very beautiful, clean and weather was also bright and sunny. I will definetly visit Porto again.</p>
+                        <p>Last week wasn't very special but luckily I went to my grandmother's house where I played (play) with friends. and I visited (visit) some place I've never been to. My grandmother and I went to the restaurant for lunch at noon. And when we turn (return) to the house. it was (be) 6 o'clock in the afternoon And my grandmother started (start) preparing the food while I went (go) to the supermarket to do the shopping I needed at home. After that, we had dinner together at 9 o'clock in the afternoon. And we (go) to bed to sleep.</p>
                     </div>
                 </div>
            </div>

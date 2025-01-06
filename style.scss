@@ -528,3 +528,52 @@ table tr:nth-child(2n+2){
         font-size: 32px;
     }
 }
+
+// Translation List
+.translationList{
+    display: flex;
+    flex-wrap: wrap;
+    &__item{
+        display: none;
+        width: 100%;
+        margin-bottom: 60px;
+        &__content{
+            color: $color-white;
+            padding: 12px 20px;
+            border-radius: 16px;
+            text-align: center;
+            line-height: 1.4;
+            @include media-breakpoint-up('xl'){
+                font-size: 18px;
+                padding: 14px 20px;
+            }
+            &--pt{
+                background-color: $color-dark;
+                margin-bottom: 10px;
+            }
+            &--en{
+                background-color: $color-green-ocean;
+            }
+        }
+    }
+    &__next{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+        &__link{
+            cursor: pointer;
+            background-color: $color-pumpkin;
+            padding: 12px 20px;
+            border-radius: 4px;
+            color: $color-white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color $time-fast;
+            &:hover{
+                @include media-breakpoint-up('xl'){
+                    background-color: $color-blue-dark;
+                }
+            }
+        }
+    }
+}
