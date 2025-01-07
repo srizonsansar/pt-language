@@ -25,28 +25,28 @@
             <div class="translationList">
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Eu sou do Nepal</div>
-                    <div class="translationList__item__content translationList__item__content--en">I am from Nepal</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Eu sou do Nepal.</div>
+                    <div class="translationList__item__content translationList__item__content--en">I am from Nepal.</div>
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Eu sou o professor</div>
-                    <div class="translationList__item__content translationList__item__content--en">I am a teacher</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Eu sou o professor.</div>
+                    <div class="translationList__item__content translationList__item__content--en">I am a teacher.</div>
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Eu sou muito baixo</div>
-                    <div class="translationList__item__content translationList__item__content--en">I am very short</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Eu sou muito baixo.</div>
+                    <div class="translationList__item__content translationList__item__content--en">I am very short.</div>
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Eu estou em casa</div>
-                    <div class="translationList__item__content translationList__item__content--en">I am at home</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Eu estou em casa.</div>
+                    <div class="translationList__item__content translationList__item__content--en">I am at home.</div>
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">O copo está na mesa</div>
-                    <div class="translationList__item__content translationList__item__content--en">The cup is on the table</div>
+                    <div class="translationList__item__content translationList__item__content--pt">O copo está na mesa.</div>
+                    <div class="translationList__item__content translationList__item__content--en">The cup is on the table.</div>
                 </div>
 
                 <div class="translationList__item">
@@ -60,23 +60,23 @@
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Eu estou a viver</div>
-                    <div class="translationList__item__content translationList__item__content--en">I am living</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Eu estou a viver.</div>
+                    <div class="translationList__item__content translationList__item__content--en">I am living.</div>
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Ele está a jogar</div>
-                    <div class="translationList__item__content translationList__item__content--en">He is playing</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Ele está a jogar.</div>
+                    <div class="translationList__item__content translationList__item__content--en">He is playing.</div>
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Nós estamos tocar a guitarra</div>
-                    <div class="translationList__item__content translationList__item__content--en">I am playing the guitar</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Nós estamos tocar a guitarra.</div>
+                    <div class="translationList__item__content translationList__item__content--en">I am playing the guitar.</div>
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Eu gosto o bolo</div>
-                    <div class="translationList__item__content translationList__item__content--en">I like the cake</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Eu gosto o bolo.</div>
+                    <div class="translationList__item__content translationList__item__content--en">I like the cake.</div>
                 </div>
 
                 <div class="translationList__item">
@@ -85,8 +85,8 @@
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Ele gosta a banana</div>
-                    <div class="translationList__item__content translationList__item__content--en">He likes the banana</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Ele gosta a banana.</div>
+                    <div class="translationList__item__content translationList__item__content--en">He likes the banana.</div>
                 </div>
 
                 <div class="translationList__item">
@@ -130,8 +130,8 @@
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Às que horas partes da casa ?</div>
-                    <div class="translationList__item__content translationList__item__content--en">What time do you leave from the house.</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Às que horas partes da casa?</div>
+                    <div class="translationList__item__content translationList__item__content--en">What time do you leave from the house?</div>
                 </div>
 
                 <div class="translationList__item">
@@ -192,37 +192,37 @@
 
                 <div class="translationList__item">
                     <div class="translationList__item__content translationList__item__content--pt">Nós vemos a tarefa depois do trabalho.</div>
-                    <div class="translationList__item__content translationList__item__content--pt">We see the task after the work.</div>
+                    <div class="translationList__item__content translationList__item__content--en">We see the task after the work.</div>
                 </div>
 
                 <div class="translationList__item">
                     <div class="translationList__item__content translationList__item__content--pt">Eles veem os roupas quando voltar à loja.</div>
-                    <div class="translationList__item__content translationList__item__content--pt">They see the clothes when they return to the shop.</div>
+                    <div class="translationList__item__content translationList__item__content--en">They see the clothes when they return to the shop.</div>
                 </div>
 
                 <div class="translationList__item">
                     <div class="translationList__item__content translationList__item__content--pt">Hoje á tarde eu tenho uma marcação.</div>
-                    <div class="translationList__item__content translationList__item__content--pt">Today in the afternoon i have an appointment.</div>
+                    <div class="translationList__item__content translationList__item__content--en">Today in the afternoon i have an appointment.</div>
                 </div>
 
                 <div class="translationList__item">
                     <div class="translationList__item__content translationList__item__content--pt">Tu tens folga hoje ?</div>
-                    <div class="translationList__item__content translationList__item__content--pt">Do you have a off today ?</div>
+                    <div class="translationList__item__content translationList__item__content--en">Do you have a off today ?</div>
                 </div>
 
                 <div class="translationList__item">
-                    <div class="translationList__item__content translationList__item__content--pt">Ele tem 25 anos</div>
-                    <div class="translationList__item__content translationList__item__content--pt">He is 25 years old</div>
+                    <div class="translationList__item__content translationList__item__content--pt">Ele tem 25 anos.</div>
+                    <div class="translationList__item__content translationList__item__content--en">He is 25 years old.</div>
                 </div>
 
                 <div class="translationList__item">
                     <div class="translationList__item__content translationList__item__content--pt">Nós temos uma convidade do nosso poís.</div>
-                    <div class="translationList__item__content translationList__item__content--pt">we have a guest from our country.</div>
+                    <div class="translationList__item__content translationList__item__content--en">we have a guest from our country.</div>
                 </div>
 
                 <div class="translationList__item">
                     <div class="translationList__item__content translationList__item__content--pt">Eles têm o dinheiro para pagar.</div>
-                    <div class="translationList__item__content translationList__item__content--pt">They have the money to pay.</div>
+                    <div class="translationList__item__content translationList__item__content--en">They have the money to pay.</div>
                 </div>
 
             </div>
