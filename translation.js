@@ -1,52 +1,47 @@
 $(document).ready(function() {
-    // Assign random order values
-    $('.translationList__item').each(function() {
-        // Generate a random order value
-        let randomOrder = Math.floor(Math.random() * 100); // Adjust the range as needed
-        // Assign the random order value as a data attribute and CSS order property
-        $(this).data('order', randomOrder).css('order', randomOrder);
+    // Get the number of items
+    let noOfItems = $('.translationList__item').length;
+    let currentItem = 1; // Track the current item to show
+
+    // Update the count display
+    $('.translationCount span').text(noOfItems);
+
+    // Generate an array of numbers from 1 to noOfItems
+    let numbers = Array.from({length: noOfItems}, (_, i) => i + 1);
+
+    // Shuffle the array to get random order
+    for (let i = numbers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+    }
+
+    // Assign the random numbers as IDs and set CSS order
+    $('.translationList__item').each(function(index) {
+        $(this).attr('id', 'item-' + numbers[index])
+               .css('order', numbers[index]);
     });
 
-    // Find the item with the lowest order and display it
-    let $firstItem = $('.translationList__item')
-        .sort(function(a, b) {
-            return $(a).data('order') - $(b).data('order');
-        })
-        .first();
+    // Show item with ID 1 by default
+    $('#item-1').show();
 
-    $firstItem.show(); // Display the first item
-    let currentOrder = $firstItem.data('order'); // Initialize current order
-
-    // Show the next item on button click
-    let currentData = 1
-    let noOfReading = $('.translationList__item').length
-    $('.translationCount span').text(noOfReading)
-
-    $('.translationList__next__link').on('click', function() {
-        currentData++
-        // Find the next hidden item with the lowest order greater than currentOrder
-        let $nextItem = $('.translationList__item')
-            .filter(function() {
-                return $(this).is(':hidden') && $(this).data('order') > currentOrder;
-            })
-            .sort(function(a, b) {
-                return $(a).data('order') - $(b).data('order');
-            })
-            .first();
-
-        // If an item is found, show it and update currentOrder
-        if ($nextItem.length) {
-            currentOrder = $nextItem.data('order');
-            $nextItem.fadeIn(); // Use fadeIn for a smooth transition
+    // Handle next button click
+    $('.translationList__next__link').click(function(e) {
+        e.preventDefault();
+        
+        // Increment to next item
+        currentItem++;
+        
+        // If we've reached the end, hide the next button
+        if (currentItem > noOfItems) {
+            $('.translationList__next').hide();
+            return;
         }
+        
+        // Show the next item
+        $('#item-' + currentItem).show();
 
-
-        if(currentData > noOfReading - 1){
-            $('.translationList__next').fadeOut()
-        }
-
+        // Scroll to bottom
         $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, 'slow');
-
     });
-
+    
 });
