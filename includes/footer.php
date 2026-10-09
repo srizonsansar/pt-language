@@ -18,6 +18,7 @@
   </div>
   <canvas class="confetti" aria-hidden="true"></canvas>
 
+  <script>window.PT_EXT = <?= CLEAN_URLS ? "''" : "'.php'" ?>;</script>
   <?php if (!empty($pageData)): ?>
   <script>window.PT_DATA = <?= js($pageData) ?>;</script>
   <?php endif; ?>

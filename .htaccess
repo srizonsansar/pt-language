@@ -1,32 +1,40 @@
-Options -Indexes -MultiViews
+# Fala Comigo — works in the web root or any subfolder (e.g. /pt-language/)
 DirectoryIndex index.php
+Options -Indexes
+
+<IfModule mod_rewrite.c>
 RewriteEngine On
+
+# Tell PHP that clean URLs (/learn) work here. Without this, links use .php.
+RewriteRule ^ - [E=CLEAN_URLS:1]
+
+# Work out the folder this site lives in (e.g. /pt-language/) -> %{ENV:BASE}
+RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+RewriteRule ^(.*)$ - [E=BASE:%1]
 
 # Block direct access to content/include files
 RewriteRule ^(data|includes)/ - [F,L]
 
-# Old pages from the previous version -> new pages (works in any folder)
-RewriteCond %{REQUEST_URI} ^(.*/)(introduction|timepass|last-week)(\.php)?/?$
-RewriteRule ^ %1 [R=301,L]
-RewriteCond %{REQUEST_URI} ^(.*/)translations(\.php)?/?$
-RewriteRule ^ %1phrasebook [R=301,L]
+# Old pages from the previous version -> new pages
+RewriteRule ^(introduction|timepass|last-week)(\.php)?/?$ %{ENV:BASE} [R=301,L]
+RewriteRule ^translations(\.php)?/?$ %{ENV:BASE}phrasebook [R=301,L]
 
-# "/learn/" -> "/learn" (keeps relative links working)
+# "/learn/" -> "/learn"
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} ^(.+)/$
-RewriteRule ^ %1 [R=301,L]
+RewriteRule ^(.+)/$ %{ENV:BASE}$1 [R=301,L]
 
-# Redirect "/index.php" -> "/" and "/quiz.php" -> "/quiz" (keeps ?query)
-RewriteCond %{THE_REQUEST} \s/+((?:[^\s?]*/)?)index\.php[\s?] [NC]
-RewriteRule ^ /%1 [R=301,L,NE]
-RewriteCond %{THE_REQUEST} \s/+([^\s?]+?)\.php[\s?] [NC]
-RewriteRule ^ /%1 [R=301,L,NE]
+# "/index.php" -> "/"  and  "/quiz.php?x" -> "/quiz?x"  (only real browser requests)
+RewriteCond %{THE_REQUEST} \s[^\s?]*/index\.php[\s?] [NC]
+RewriteRule ^(.*/)?index\.php$ %{ENV:BASE}$1 [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \s[^\s?]+\.php[\s?] [NC]
+RewriteRule ^(.+)\.php$ %{ENV:BASE}$1 [R=301,L,NC]
 
 # Serve "/quiz" from quiz.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.+)$ $1.php [L]
+RewriteRule ^(.+)$ %{ENV:BASE}$1.php [L]
+</IfModule>
 
 <IfModule mod_expires.c>
   ExpiresActive On

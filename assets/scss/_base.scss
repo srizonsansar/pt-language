@@ -39,11 +39,11 @@ kbd { font: 700 .75em $font-body; background: #fff; border: 1px solid $line; bor
 body.show-ne .lang-ne { display: revert; }
 .page-home .lang-ne { display: revert; } // always show on home
 
-// Reveal animation
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s $ease, transform .6s $ease; }
-.reveal.in { opacity: 1; transform: none; }
+// Reveal animation — only hides content when JavaScript is running
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s $ease, transform .6s $ease; }
+.js .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 

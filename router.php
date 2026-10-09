@@ -4,6 +4,7 @@
  *   php -S localhost:8000 router.php
  * On a real Apache host, .htaccess does the same job and this file is ignored.
  */
+$_SERVER['CLEAN_URLS'] = '1';
 $path = rawurldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 $root = __DIR__;
 $qs = isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] !== '' ? '?' . $_SERVER['QUERY_STRING'] : '';

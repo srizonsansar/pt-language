@@ -22,8 +22,8 @@ include __DIR__ . '/includes/header.php';
       <p class="hero__ne lang-ne">नमस्ते! सँगै पोर्चुगिज भाषा सिकौँ।</p>
       <p class="hero__lead">Short lessons for real life in Portugal — the café, the bus, work, the doctor. Listen to every word, play quick quizzes and practise conversations.</p>
       <div class="hero__cta">
-        <a href="learn" class="btn btn--primary btn--lg">Começar · Start 🚀</a>
-        <a href="quiz" class="btn btn--ghost btn--lg">Play a quiz 🎯</a>
+        <a href="<?= url('learn') ?>" class="btn btn--primary btn--lg">Começar · Start 🚀</a>
+        <a href="<?= url('quiz') ?>" class="btn btn--ghost btn--lg">Play a quiz 🎯</a>
       </div>
       <ul class="hero__facts">
         <li><b><?= vocab_count($VOCAB) ?></b> words</li>
@@ -49,7 +49,7 @@ include __DIR__ . '/includes/header.php';
       <div class="wotd__actions">
         <button class="btn btn--round" data-wotd-say aria-label="Listen">🔊</button>
         <button class="btn btn--round" data-wotd-slow aria-label="Listen slowly">🐢</button>
-        <a class="btn btn--small" data-wotd-link href="learn">Open topic →</a>
+        <a class="btn btn--small" data-wotd-link href="<?= url('learn') ?>">Open topic →</a>
       </div>
     </div>
   </div>
@@ -83,11 +83,11 @@ include __DIR__ . '/includes/header.php';
 <section class="wrap section">
   <div class="section__head">
     <h2>Your learning path <span class="lang-ne">· सिक्ने बाटो</span></h2>
-    <a href="learn" class="more">All topics →</a>
+    <a href="<?= url('learn') ?>" class="more">All topics →</a>
   </div>
   <div class="path">
     <?php $i = 0; foreach ($VOCAB as $key => $t): $i++; ?>
-      <a class="path__node reveal" href="learn?topic=<?= $key ?>" style="--c: <?= $t['color'] ?>" data-topic="<?= $key ?>">
+      <a class="path__node reveal" href="<?= url('learn') ?>?topic=<?= $key ?>" style="--c: <?= $t['color'] ?>" data-topic="<?= $key ?>">
         <span class="path__icon"><?= $t['icon'] ?></span>
         <span class="path__label"><b><?= e($t['title']) ?></b><small><?= e($t['pt']) ?></small></span>
         <span class="path__bar"><i style="width:0%"></i></span>
@@ -100,11 +100,11 @@ include __DIR__ . '/includes/header.php';
 <section class="wrap section">
   <div class="section__head">
     <h2>Everyday conversations <span class="lang-ne">· दैनिक कुराकानी</span></h2>
-    <a href="conversations" class="more">All conversations →</a>
+    <a href="<?= url('conversations') ?>" class="more">All conversations →</a>
   </div>
   <div class="convo-grid">
     <?php foreach (array_slice($DIALOGUES, 0, 4, true) as $id => $d): ?>
-      <a class="convo-card reveal" href="conversations?id=<?= $id ?>" style="--c: <?= $d['color'] ?>">
+      <a class="convo-card reveal" href="<?= url('conversations') ?>?id=<?= $id ?>" style="--c: <?= $d['color'] ?>">
         <span class="convo-card__icon"><?= $d['icon'] ?></span>
         <span class="convo-card__pt"><?= e($d['pt']) ?></span>
         <span class="convo-card__en"><?= e($d['title']) ?></span>
@@ -120,7 +120,7 @@ include __DIR__ . '/includes/header.php';
     <div class="quiz-banner__text">
       <h2>Ready for a challenge? 🎯</h2>
       <p>Multiple choice, listening, typing, matching pairs, sentence building and grammar. Earn XP and climb levels!</p>
-      <a class="btn btn--sun btn--lg" href="quiz">Play now</a>
+      <a class="btn btn--sun btn--lg" href="<?= url('quiz') ?>">Play now</a>
     </div>
     <div class="quiz-banner__chips" aria-hidden="true">
       <span>🔤 Choose</span><span>🎧 Listen</span><span>⌨️ Type</span><span>🧩 Match</span><span>🧱 Build</span><span>📐 Grammar</span>

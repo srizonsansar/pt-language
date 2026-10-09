@@ -35,7 +35,7 @@ include __DIR__ . '/includes/header.php';
   </section>
   <section class="wrap convo-grid convo-grid--all">
     <?php foreach ($DIALOGUES as $k => $c): ?>
-      <a class="convo-card reveal" href="conversations?id=<?= $k ?>" style="--c: <?= $c['color'] ?>">
+      <a class="convo-card reveal" href="<?= url('conversations') ?>?id=<?= $k ?>" style="--c: <?= $c['color'] ?>">
         <span class="convo-card__level lvl-<?= $c['level'] ?>"><?= $levels[$c['level']] ?></span>
         <span class="convo-card__icon"><?= $c['icon'] ?></span>
         <span class="convo-card__pt"><?= e($c['pt']) ?></span>
@@ -51,7 +51,7 @@ include __DIR__ . '/includes/header.php';
   <section class="pagehead pagehead--topic" style="--c: <?= $d['color'] ?>">
     <div class="wrap pagehead__row">
       <div>
-        <a href="conversations" class="back">← All conversations</a>
+        <a href="<?= url('conversations') ?>" class="back">← All conversations</a>
         <h1><span class="pagehead__icon"><?= $d['icon'] ?></span> <?= e($d['pt']) ?> <small><?= e($d['title']) ?></small></h1>
         <p>🎬 <?= e($d['scene']) ?></p>
       </div>
@@ -100,7 +100,7 @@ include __DIR__ . '/includes/header.php';
           <li>Say your lines out loud! 🗣️</li>
         </ol>
       </div>
-      <a class="side-next" href="conversations?id=<?= $next ?>" style="--c: <?= $DIALOGUES[$next]['color'] ?>">
+      <a class="side-next" href="<?= url('conversations') ?>?id=<?= $next ?>" style="--c: <?= $DIALOGUES[$next]['color'] ?>">
         <small>Next conversation</small>
         <b><?= $DIALOGUES[$next]['icon'] ?> <?= e($DIALOGUES[$next]['pt']) ?></b>
         <span><?= e($DIALOGUES[$next]['title']) ?> →</span>

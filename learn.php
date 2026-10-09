@@ -31,7 +31,7 @@ include __DIR__ . '/includes/header.php';
   </section>
   <section class="wrap topic-grid">
     <?php foreach ($VOCAB as $k => $t): ?>
-      <a class="topic-card reveal" href="learn?topic=<?= $k ?>" style="--c: <?= $t['color'] ?>" data-topic="<?= $k ?>">
+      <a class="topic-card reveal" href="<?= url('learn') ?>?topic=<?= $k ?>" style="--c: <?= $t['color'] ?>" data-topic="<?= $k ?>">
         <span class="topic-card__icon"><?= $t['icon'] ?></span>
         <span class="topic-card__pt"><?= e($t['pt']) ?></span>
         <span class="topic-card__title"><?= e($t['title']) ?></span>
@@ -48,7 +48,7 @@ include __DIR__ . '/includes/header.php';
   <section class="pagehead pagehead--topic" style="--c: <?= $topic['color'] ?>">
     <div class="wrap pagehead__row">
       <div>
-        <a href="learn" class="back">← All topics</a>
+        <a href="<?= url('learn') ?>" class="back">← All topics</a>
         <h1><span class="pagehead__icon"><?= $topic['icon'] ?></span> <?= e($topic['title']) ?> <small><?= e($topic['pt']) ?></small></h1>
         <p><?= e($topic['intro']) ?></p>
       </div>
@@ -63,7 +63,7 @@ include __DIR__ . '/includes/header.php';
     <div class="tabs" role="tablist">
       <button class="tabs__btn is-active" role="tab" data-tab="cards">🃏 Flashcards</button>
       <button class="tabs__btn" role="tab" data-tab="list">📋 Word list</button>
-      <a class="tabs__btn tabs__btn--cta" href="quiz?topic=<?= $key ?>">🎯 Quiz this topic</a>
+      <a class="tabs__btn tabs__btn--cta" href="<?= url('quiz') ?>?topic=<?= $key ?>">🎯 Quiz this topic</a>
     </div>
 
     <div class="panel" data-panel="cards">
@@ -108,8 +108,8 @@ include __DIR__ . '/includes/header.php';
         <p>You know <b data-known>0</b> of <?= count($topic['words']) ?> words in this topic.</p>
         <div class="deck-done__actions">
           <button class="btn btn--ghost" data-act="restart">🔁 Practise again</button>
-          <a class="btn btn--sun" href="quiz?topic=<?= $key ?>">🎯 Take the quiz</a>
-          <a class="btn btn--primary" data-next-topic href="learn?topic=<?= $pageData['next'] ?>">Next: <?= e($pageData['nextTitle']) ?> →</a>
+          <a class="btn btn--sun" href="<?= url('quiz') ?>?topic=<?= $key ?>">🎯 Take the quiz</a>
+          <a class="btn btn--primary" data-next-topic href="<?= url('learn') ?>?topic=<?= $pageData['next'] ?>">Next: <?= e($pageData['nextTitle']) ?> →</a>
         </div>
       </div>
     </div>

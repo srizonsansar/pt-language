@@ -7,7 +7,7 @@
   const dayNum = Math.floor(Date.now() / 864e5);
   const w = D.words[dayNum % D.words.length];
   document.querySelectorAll('[data-wotd]').forEach(el => { el.textContent = w[el.dataset.wotd] || ''; });
-  document.querySelector('[data-wotd-link]').href = 'learn?topic=' + w.topic;
+  document.querySelector('[data-wotd-link]').href = 'learn' + (window.PT_EXT || '') + '?topic=' + w.topic;
   document.querySelector('[data-wotd-say]').onclick = e => speak(w.pt, { el: e.currentTarget, slow: false });
   document.querySelector('[data-wotd-slow]').onclick = e => speak(w.pt, { el: e.currentTarget, slow: true });
 

@@ -12,6 +12,8 @@ $nav = [
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <base href="<?= e(BASE) ?>">
+  <script>document.documentElement.classList.add('js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= e($title ?? SITE_NAME) ?> · <?= SITE_NAME ?></title>
   <meta name="description" content="<?= e(SITE_TAGLINE) ?> — vocabulary, conversations, quizzes and audio, free.">
@@ -23,7 +25,7 @@ $nav = [
   <link rel="stylesheet" href="<?= asset('assets/css/style.css') ?>">
 </head>
 <body class="page-<?= e($page) ?>">
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="<?= e(strtok($_SERVER['REQUEST_URI'] ?? '', '#')) ?>#main">Skip to content</a>
   <header class="topbar">
     <div class="topbar__inner">
       <a class="brand" href="./" aria-label="<?= SITE_NAME ?> home">
@@ -36,7 +38,7 @@ $nav = [
       </a>
       <nav class="nav" id="nav" aria-label="Main">
         <?php foreach ($nav as $key => [$href, $label, $icon]): ?>
-          <a href="<?= $href ?>" class="nav__link<?= $page === $key ? ' is-active' : '' ?>"><span aria-hidden="true"><?= $icon ?></span> <?= $label ?></a>
+          <a href="<?= url($href) ?>" class="nav__link<?= $page === $key ? ' is-active' : '' ?>"><span aria-hidden="true"><?= $icon ?></span> <?= $label ?></a>
         <?php endforeach; ?>
       </nav>
       <div class="stats" title="Your progress (saved in this browser)">
