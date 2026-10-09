@@ -1,7 +1,5 @@
 node_modules
-assets/css
-assets/scripts
 .idea/
 .sass-cache/
 .DS_Store
-style.css.map
+*.css.map

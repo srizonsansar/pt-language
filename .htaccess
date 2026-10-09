@@ -1,4 +1,35 @@
-RewriteOptions inherit
+Options -Indexes -MultiViews
+DirectoryIndex index.php
 RewriteEngine On
+
+# Block direct access to content/include files
+RewriteRule ^(data|includes)/ - [F,L]
+
+# Old pages from the previous version -> new pages (works in any folder)
+RewriteCond %{REQUEST_URI} ^(.*/)(introduction|timepass|last-week)(\.php)?/?$
+RewriteRule ^ %1 [R=301,L]
+RewriteCond %{REQUEST_URI} ^(.*/)translations(\.php)?/?$
+RewriteRule ^ %1phrasebook [R=301,L]
+
+# "/learn/" -> "/learn" (keeps relative links working)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# Redirect "/index.php" -> "/" and "/quiz.php" -> "/quiz" (keeps ?query)
+RewriteCond %{THE_REQUEST} \s/+((?:[^\s?]*/)?)index\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# Serve "/quiz" from quiz.php
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

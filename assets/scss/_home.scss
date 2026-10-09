@@ -1,0 +1,104 @@
+// ===== Hero
+.hero {
+  position: relative; overflow: hidden; padding: 64px 0 72px;
+  background:
+    radial-gradient(circle at 88% 30%, rgba($sun, .28) 0 180px, transparent 181px),
+    radial-gradient(circle at 72% 78%, $blue-l 0 240px, transparent 241px),
+    $cream;
+  &__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  &__title { font-size: clamp(2.4rem, 6vw, 4.2rem); margin-bottom: .25em;
+    .hl { color: $blue; background: linear-gradient(transparent 62%, rgba($sun, .7) 62%); padding: 0 .1em; }
+  }
+  &__ne { font-size: 1.25rem; color: $terra; font-weight: 600; margin-bottom: 14px; }
+  &__lead { font-size: 1.15rem; color: $muted; max-width: 560px; }
+  &__cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0 28px; }
+  &__facts { display: flex; gap: 28px; list-style: none; padding: 0; margin: 0; color: $muted; font-weight: 700;
+    b { display: block; font: 800 1.8rem $font-display; color: $ink; } }
+  @include md {
+    padding-top: 36px;
+    background: radial-gradient(circle at 100% 0, rgba($sun, .3) 0 120px, transparent 121px), $cream;
+    &__grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+}
+
+// Word of the day (flip card)
+.wotd {
+  background: #fff; border-radius: 26px; padding: 22px; box-shadow: $shadow-lg; border: 3px solid $blue; position: relative; max-width: 420px; justify-self: center; width: 100%;
+  &__label { font-weight: 800; font-size: .85rem; color: $blue; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 12px; }
+  &__card { position: relative; height: 230px; perspective: 1000px; cursor: pointer; outline-offset: 6px;
+    &.is-flipped .wotd__front { transform: rotateY(180deg); }
+    &.is-flipped .wotd__back { transform: rotateY(0); }
+  }
+  &__face { position: absolute; inset: 0; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 16px; backface-visibility: hidden; transition: transform .6s $ease; }
+  &__front { background: $blue-l; }
+  &__back { background: $blue; color: #fff; transform: rotateY(-180deg); }
+  &__emoji { font-size: 3.4rem; line-height: 1; margin-bottom: 8px; }
+  &__pt { font: 800 2.2rem $font-display; color: $blue-d; }
+  &__hint { font-size: .85rem; color: $muted; margin-top: 8px; }
+  &__en { font: 800 1.7rem $font-display; }
+  &__ne { font-size: 1.3rem; color: $sun; margin-top: 6px; display: block !important; }
+  &__note { font-size: .9rem; opacity: .85; margin-top: 10px; }
+  &__actions { display: flex; gap: 10px; align-items: center; margin-top: 16px; .btn--small { margin-left: auto; } }
+}
+
+// Dashboard
+.dash {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: -24px; position: relative;
+  &__card { background: #fff; border-radius: $radius; padding: 18px; box-shadow: $shadow; display: flex; gap: 14px; align-items: center;
+    h3 { margin: 0 0 2px; } p { margin: 0; color: $muted; font-size: .9rem; } }
+  &__big { font: 800 1.9rem $font-display; white-space: nowrap; min-width: 84px; text-align: center; }
+  @media (max-width: 1000px) { grid-template-columns: repeat(2, 1fr); }
+  @include sm { grid-template-columns: 1fr; margin-top: 0; }
+}
+
+// Learning path
+.path {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px;
+  &__node {
+    display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "icon label count" "icon bar bar"; gap: 4px 12px; align-items: center;
+    background: #fff; border-radius: $radius; padding: 14px 16px; text-decoration: none; color: $ink; box-shadow: $shadow;
+    border-left: 6px solid var(--c); transition: transform .2s $ease, box-shadow .2s;
+    &:hover { transform: translateY(-3px); box-shadow: $shadow-lg; }
+    &.is-done { background: linear-gradient(90deg, color-mix(in srgb, var(--c) 10%, #fff), #fff); .path__count::before { content: '✓ '; } }
+  }
+  &__icon { grid-area: icon; font-size: 1.9rem; width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 14%, #fff); }
+  &__label { grid-area: label; b { display: block; } small { color: $muted; font-weight: 700; } }
+  &__bar { grid-area: bar; }
+  &__count { grid-area: count; font-weight: 800; color: var(--c); font-size: .9rem; }
+}
+
+// Conversation cards
+.convo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.convo-card {
+  position: relative; display: flex; flex-direction: column; gap: 2px; background: #fff; border-radius: $radius; padding: 20px; text-decoration: none; color: $ink; box-shadow: $shadow; overflow: hidden;
+  border-top: 6px solid var(--c); transition: transform .25s $ease, box-shadow .25s;
+  &:hover { transform: translateY(-4px) rotate(-.4deg); box-shadow: $shadow-lg; }
+  &__icon { font-size: 2.2rem; }
+  &__pt { font: 800 1.25rem $font-display; }
+  &__en { color: $muted; font-weight: 700; font-size: .92rem; }
+  &__scene { font-size: .9rem; color: $muted; margin-top: 6px; }
+  &__bubble { margin-top: 12px; background: color-mix(in srgb, var(--c) 12%, #fff); padding: 10px 14px; border-radius: 16px 16px 16px 4px; font-size: .92rem; font-style: italic; }
+  &__done { position: absolute; top: 14px; right: 14px; background: $green; color: #fff; font-weight: 800; font-size: .78rem; padding: 3px 10px; border-radius: 99px; }
+  &__level { position: absolute; top: 14px; right: 14px; font-size: .75rem; font-weight: 800; padding: 3px 10px; border-radius: 99px; background: $green-l; color: $green;
+    &.lvl-2 { background: #fff4d6; color: #a07400; } &.lvl-3 { background: $red-l; color: $red; } }
+  &__done + &__level, &__level:has(~ .convo-card__done:not([hidden])) { display: none; }
+}
+
+// Quiz banner
+.quiz-banner {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; background: $blue; color: #fff; border-radius: 28px; padding: 40px; position: relative; overflow: hidden;
+  p { opacity: .9; max-width: 460px; }
+  &__chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    span { background: rgba(#fff, .14); border: 1px solid rgba(#fff, .25); padding: 10px 16px; border-radius: 99px; font-weight: 800; transition: transform .3s;
+      &:nth-child(odd) { transform: rotate(-3deg); } &:nth-child(even) { transform: rotate(2deg); } }
+  }
+  &:hover &__chips span { transform: none; }
+  @include md { grid-template-columns: 1fr; padding: 28px; }
+}
+
+// Tips
+.tips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  @include md { grid-template-columns: 1fr; }
+}
+.tip { display: flex; gap: 14px; background: #fff; border-radius: $radius; padding: 20px; box-shadow: $shadow;
+  > span { font-size: 2rem; } p { margin: 0; color: $muted; font-size: .95rem; } }

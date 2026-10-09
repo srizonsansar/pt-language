@@ -1,557 +1,137 @@
-<?php $active = 'home-page'; ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Learning basis Portuguese Language</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css?v=<?php echo date('mdHi') ?>">
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    </head>
-    <body>
+<?php
+require __DIR__ . '/includes/init.php';
+$page = 'home';
+$title = 'Learn beginner Portuguese';
 
-        <div class="banner">
-            <h1>Learning Portuguese Language</h1>
+// Word list for "word of the day" (picked in JS by date)
+$allWords = [];
+foreach ($VOCAB as $key => $t) foreach ($t['words'] as $w) $allWords[] = $w + ['topic' => $key];
+$topicsForJs = [];
+foreach ($VOCAB as $key => $t) $topicsForJs[$key] = array_column($t['words'], 'pt');
+
+$pageData = ['words' => $allWords, 'topics' => $topicsForJs, 'dialogues' => array_keys($DIALOGUES)];
+$scripts = ['home.js'];
+include __DIR__ . '/includes/header.php';
+?>
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__text">
+      <p class="eyebrow">🇳🇵 → 🇵🇹 Beginner · Português de Portugal</p>
+      <h1 class="hero__title">Olá! <span class="hl">Vamos aprender</span> português.</h1>
+      <p class="hero__ne lang-ne">नमस्ते! सँगै पोर्चुगिज भाषा सिकौँ।</p>
+      <p class="hero__lead">Short lessons for real life in Portugal — the café, the bus, work, the doctor. Listen to every word, play quick quizzes and practise conversations.</p>
+      <div class="hero__cta">
+        <a href="learn" class="btn btn--primary btn--lg">Começar · Start 🚀</a>
+        <a href="quiz" class="btn btn--ghost btn--lg">Play a quiz 🎯</a>
+      </div>
+      <ul class="hero__facts">
+        <li><b><?= vocab_count($VOCAB) ?></b> words</li>
+        <li><b><?= count($DIALOGUES) ?></b> conversations</li>
+        <li><b>6</b> quiz games</li>
+      </ul>
+    </div>
+
+    <div class="wotd reveal" aria-live="polite">
+      <div class="wotd__label">✨ Palavra do dia · Word of the day</div>
+      <div class="wotd__card" tabindex="0" role="button" aria-label="Flip card">
+        <div class="wotd__face wotd__front">
+          <div class="wotd__emoji" data-wotd="e">👋</div>
+          <div class="wotd__pt" data-wotd="pt">Olá</div>
+          <div class="wotd__hint">Tap to see the meaning</div>
         </div>
-        
-        <?php include('nav.php') ?>
-
-        <div class="container">
-
-            <div class="table-container">
-                <table cellspacing="0" cellpadding="0">
-                    <thead>
-                        <tr>
-                            <th><strong>English</strong></th>
-                            <th><strong>Portuguese</strong></th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>A</strong></td>
-                            <td><strong>Um</strong> / <strong>Uma</strong></td>
-                            <td>Masculine/feminine singular.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>I</strong></td>
-                            <td><strong>Eu</strong></td>
-                            <td>First-person singular pronoun.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Am</strong></td>
-                            <td><strong>Sou</strong> / <strong>Estou</strong></td>
-                            <td>Forms of "to be" (<em>ser</em> and <em>estar</em>).</td>
-                        </tr>
-                        <tr>
-                            <td><strong>We</strong></td>
-                            <td><strong>Nós</strong></td>
-                            <td>First-person plural pronoun.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Are</strong></td>
-                            <td><strong>São</strong> / <strong>Estão</strong> / <strong>És</strong> / <strong>Estás</strong></td>
-                            <td>Varies with "ser" or "estar" and subject.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>And</strong></td>
-                            <td><strong>E</strong></td>
-                            <td>Conjunction.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Is</strong></td>
-                            <td><strong>É</strong> / <strong>Está</strong></td>
-                            <td>Forms of "to be."</td>
-                        </tr>
-                        <tr>
-                            <td><strong>You</strong></td>
-                            <td><strong>Você</strong> / <strong>Tu</strong> / <strong>Vocês</strong></td>
-                            <td>Informal/formal/singular/plural.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Your</strong></td>
-                            <td><strong>Seu</strong> / <strong>Sua</strong> / <strong>Teu</strong> / <strong>Tua</strong></td>
-                            <td>Matches gender and formality.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Have</strong></td>
-                            <td><strong>Ter</strong> / <strong>Têm</strong></td>
-                            <td>Varies by subject and context.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Has</strong></td>
-                            <td><strong>Tem</strong></td>
-                            <td>Third-person singular of "to have."</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Who</strong></td>
-                            <td><strong>Quem</strong></td>
-                            <td>Used for questions or identifying people.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>What</strong></td>
-                            <td><strong>O que</strong> / <strong>Que</strong></td>
-                            <td>Used in questions or expressions.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>When</strong></td>
-                            <td><strong>Quando</strong></td>
-                            <td>Refers to time.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Why</strong></td>
-                            <td><strong>Por quê</strong> / <strong>Porquê</strong></td>
-                            <td>Refers to reason or cause.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Which</strong></td>
-                            <td><strong>Qual</strong> / <strong>Quais</strong></td>
-                            <td>Singular/plural form.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>This</strong></td>
-                            <td><strong>Este</strong> / <strong>Esta</strong> / <strong>Isto</strong></td>
-                            <td>Depends on gender and usage.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>That</strong></td>
-                            <td><strong>Esse</strong> / <strong>Essa</strong> / <strong>Aquele</strong> / <strong>Aquela</strong></td>
-                            <td>Context-sensitive.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>The</strong></td>
-                            <td><strong>O</strong> / <strong>A</strong> / <strong>Os</strong> / <strong>As</strong></td>
-                            <td>Matches gender and plurality.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Than</strong></td>
-                            <td><strong>Do que</strong></td>
-                            <td>Used for comparisons.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>One</strong></td>
-                            <td><strong>Um</strong></td>
-                            <td>Refers to the number or "one thing."</td>
-                        </tr>
-                        <tr>
-                            <td><strong>For</strong></td>
-                            <td><strong>Para</strong></td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td><strong>In</strong></td>
-                            <td><strong>Em</strong></td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td><strong>To</strong></td>
-                            <td><strong>Para</strong></td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>Generally: The nouns that end with letter <span>O</span> are masculine. And the letter that ends with <span>A</span> is feminine.</h3>
-
-            <p><strong>O -> masculine</strong><br>
-            <strong>A -> feminine</strong></p>
-            <p>Eg: <br>
-                Uma Casa -> A house (Casa ends with A)<br>
-                Um Carro -> O car (Carro end with letter O)
-            </p>
-
-            <p>&nbsp;</p>
-            <h2>Day to day words of Portuguese language for conversation</h2>
-            <div class="table-container">
-                <table cellspacing="0" cellpadding="0" class="four-col">
-                    <tbody>
-                        <tr>
-                            <td>Today</td>
-                            <td>Hoje</td>
-                            <td>Tomorrow</td>
-                            <td>Amanhã</td>
-                        </tr>
-                        <tr>
-                            <td>Yesterday</td>
-                            <td>Ontem</td>
-                            <td>Month</td>
-                            <td>Mês</td>
-                        </tr>
-                        <tr>
-                            <td>Year</td>
-                            <td>Ano</td>
-                            <td>Date</td>
-                            <td>Data</td>
-                        </tr>
-                        <tr>
-                            <td>Later</td>
-                            <td>Mais tarde / Depois</td>
-                            <td>Now</td>
-                            <td>Agora</td>
-                        </tr>
-                        <tr>
-                            <td>Bus</td>
-                            <td>Autocarro</td>
-                            <td>Mobile</td>
-                            <td>Telemóvel</td>
-                        </tr>
-                        <tr>
-                            <td>Book</td>
-                            <td>Livro</td>
-                            <td>Office</td>
-                            <td>Escritório</td>
-                        </tr>
-                        <tr>
-                            <td>Coffee</td>
-                            <td>Café</td>
-                            <td>With</td>
-                            <td>Com</td>
-                        </tr>
-                        <tr>
-                            <td>Culture</td>
-                            <td>Cultura</td>
-                            <td>Hotel</td>
-                            <td>Hotel</td>
-                        </tr>
-                        <tr>
-                            <td>Job</td>
-                            <td>Trabalho</td>
-                            <td>Family</td>
-                            <td>Família</td>
-                        </tr>
-                        <tr>
-                            <td>Photos</td>
-                            <td>Fotos</td>
-                            <td>Exam</td>
-                            <td>Exame</td>
-                        </tr>
-                        <tr>
-                            <td>Juice</td>
-                            <td>Sumo</td>
-                            <td>Cash</td>
-                            <td>Dinheiro</td>
-                        </tr>
-                        <tr>
-                            <td>Traffic</td>
-                            <td>Trânsito</td>
-                            <td>Aeroplane</td>
-                            <td>Avião</td>
-                        </tr>
-                        <tr>
-                            <td>Health</td>
-                            <td>Saúde</td>
-                            <td>Food</td>
-                            <td>Comida</td>
-                        </tr>
-                        <tr>
-                            <td>Bread</td>
-                            <td>Pão</td>
-                            <td>Drink</td>
-                            <td>Bebida</td>
-                        </tr>
-                        <tr>
-                            <td>Beer</td>
-                            <td>Cerveja</td>
-                            <td>Wine</td>
-                            <td>Vinho</td>
-                        </tr>
-                        <tr>
-                            <td>City</td>
-                            <td>Cidade</td>
-                            <td>Time</td>
-                            <td>Tempo</td>
-                        </tr>
-                        <tr>
-                            <td>Right (direction)</td>
-                            <td>Direita</td>
-                            <td>Left (direction)</td>
-                            <td>Esquerda</td>
-                        </tr>
-                        <tr>
-                            <td>Fish</td>
-                            <td>Peixe</td>
-                            <td>Without</td>
-                            <td>Sem</td>
-                        </tr>
-                        <tr>
-                            <td>Car</td>
-                            <td>Carro</td>
-                            <td>Internet</td>
-                            <td>Internet</td>
-                        </tr>
-                        <tr>
-                            <td>Weather</td>
-                            <td>Tempo</td>
-                            <td>Taxi</td>
-                            <td>Táxi</td>
-                        </tr>
-                        <tr>
-                            <td>Opportunities</td>
-                            <td>Oportunidades</td>
-                            <td>Friends</td>
-                            <td>Amigos</td>
-                        </tr>
-                        <tr>
-                            <td>Videos</td>
-                            <td>Vídeos</td>
-                            <td>Water</td>
-                            <td>Água</td>
-                        </tr>
-                        <tr>
-                            <td>Card</td>
-                            <td>Cartão</td>
-                            <td>Coin</td>
-                            <td>Moeda</td>
-                        </tr>
-                        <tr>
-                            <td>Road</td>
-                            <td>Estrada</td>
-                            <td>Very Good</td>
-                            <td>Muito Bem</td>
-                        </tr>
-                        <tr>
-                            <td>Country</td>
-                            <td>País</td>
-                            <td>Wife</td>
-                            <td>Esposa</td>
-                        </tr>
-                        <tr>
-                            <td>Father</td>
-                            <td>Pai</td>
-                            <td>Mother</td>
-                            <td>Mãe</td>
-                        </tr>
-                        <tr>
-                            <td>Brother</td>
-                            <td>Irmão</td>
-                            <td>Sister</td>
-                            <td>Irmã</td>
-                        </tr>
-                        <tr>
-                            <td>More</td>
-                            <td>Mais</td>
-                            <td>Others</td>
-                            <td>Outras</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p>&nbsp;</p>
-            <h2>Day to day Verbs of Portuguese Language</h2>
-            <div class="table-container">
-                <table cellspacing="0" cellpadding="0" class="four-col">
-                    <tbody>
-                        <tr>
-                            <td>Play</td>
-                            <td>Jogar</td>
-                            <td>Eat</td>
-                            <td>Comer</td>
-                        </tr>
-                        <tr>
-                            <td>Drink</td>
-                            <td>Beber</td>
-                            <td>Try</td>
-                            <td>Tentar</td>
-                        </tr>
-                        <tr>
-                            <td>Sing</td>
-                            <td>Cantar</td>
-                            <td>Visit</td>
-                            <td>Visitar</td>
-                        </tr>
-                        <tr>
-                            <td>Like</td>
-                            <td>Gostar</td>
-                            <td>Drive</td>
-                            <td>Conduzir</td>
-                        </tr>
-                        <tr>
-                            <td>Buy</td>
-                            <td>Comprar</td>
-                            <td>Pay</td>
-                            <td>Pagar</td>
-                        </tr>
-                        <tr>
-                            <td>Cook</td>
-                            <td>Cozinhar</td>
-                            <td>Dance</td>
-                            <td>Dançar</td>
-                        </tr>
-                        <tr>
-                            <td>Love</td>
-                            <td>Amar</td>
-                            <td>Sleep</td>
-                            <td>Dormir</td>
-                        </tr>
-                        <tr>
-                            <td>Talk</td>
-                            <td>Conversar</td>
-                            <td>Speak</td>
-                            <td>Falar</td>
-                        </tr>
-                        <tr>
-                            <td>Come</td>
-                            <td>Vir</td>
-                            <td>Go</td>
-                            <td>Ir</td>
-                        </tr>
-                        <tr>
-                            <td>View</td>
-                            <td>Ver</td>
-                            <td>Read</td>
-                            <td>Ler</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p>&nbsp;</p>
-            <h2>Day to day English Language Words in Portuguese</h2>
-            <div class="table-container">
-                <table cellspacing="0" cellpadding="0" class="four-col">
-                    <tbody>
-                        <tr>
-                            <td>Before</td>
-                            <td>Antes</td>
-                            <td>Beside</td>
-                            <td>Ao lado</td>
-                        </tr>
-                        <tr>
-                            <td>Later</td>
-                            <td>Mais tarde / Depois</td>
-                            <td>Because</td>
-                            <td>Porque</td>
-                        </tr>
-                        <tr>
-                            <td>Beside of this</td>
-                            <td>Além disso</td>
-                            <td>However</td>
-                            <td>No entanto / Porém</td>
-                        </tr>
-                        <tr>
-                            <td>After</td>
-                            <td>Depois / Após</td>
-                            <td>Behind</td>
-                            <td>Atrás</td>
-                        </tr>
-                        <tr>
-                            <td>Forward</td>
-                            <td>Para frente</td>
-                            <td>Straight</td>
-                            <td>Reto / Em frente</td>
-                        </tr>
-                        <tr>
-                            <td>Curve</td>
-                            <td>Curva</td>
-                            <td>Finally</td>
-                            <td>Finalmente</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-            <p>&nbsp;</p>
-            <h2>Days and Months in Portuguese</h2>
-            <div class="table-container">
-                <table cellspacing="0" cellpadding="0" class="four-col">
-                    <tbody>
-                        <tr>
-                            <td>January</td>
-                            <td>Janeiro</td>
-                            <td>February</td>
-                            <td>Fevereiro</td>
-                        </tr>
-                        <tr>
-                            <td>March</td>
-                            <td>Março</td>
-                            <td>April</td>
-                            <td>Abril</td>
-                        </tr>
-                        <tr>
-                            <td>May</td>
-                            <td>Maio</td>
-                            <td>June</td>
-                            <td>Junho</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>Julho</td>
-                            <td>August</td>
-                            <td>Agosto</td>
-                        </tr>
-                        <tr>
-                            <td>September</td>
-                            <td>Setembro</td>
-                            <td>October</td>
-                            <td>Outubro</td>
-                        </tr>
-                        <tr>
-                            <td>November</td>
-                            <td>Novembro</td>
-                            <td>December</td>
-                            <td>Dezembro</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>Domingo</td>
-                            <td>Monday</td>
-                            <td>Segunda-feira</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>Terça-feira</td>
-                            <td>Wednesday</td>
-                            <td>Quarta-feira</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday</td>
-                            <td>Quinta-feira</td>
-                            <td>Friday</td>
-                            <td>Sexta-feira</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>Sábado</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p>&nbsp;</p>
-            <h2>Use of "The" in Portuguese</h2>
-            <div class="table-container">
-                <table cellspacing="0" cellpadding="0" class="table-center">
-                    <tbody>
-                        <tr>
-                            <th colspan="2">Singular</th>
-                            <th colspan="2">Plural</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Masculine</strong></td>
-                            <td><strong>Feminine</strong></td>
-                            <td><strong>Masculine</strong></td>
-                            <td><strong>Feminine</strong></td>
-                        </tr>
-                        <tr>
-                            <td>O</td>
-                            <td>A</td>
-                            <td>OS</td>
-                            <td>AS</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
+        <div class="wotd__face wotd__back">
+          <div class="wotd__en" data-wotd="en">Hello</div>
+          <div class="wotd__ne lang-ne" data-wotd="ne">नमस्ते</div>
+          <div class="wotd__note" data-wotd="n"></div>
         </div>
+      </div>
+      <div class="wotd__actions">
+        <button class="btn btn--round" data-wotd-say aria-label="Listen">🔊</button>
+        <button class="btn btn--round" data-wotd-slow aria-label="Listen slowly">🐢</button>
+        <a class="btn btn--small" data-wotd-link href="learn">Open topic →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <script src="main.js?v=<?php echo date('mdHi') ?>"></script>
+<section class="wrap dash">
+  <div class="dash__card dash__level reveal">
+    <div class="ring" style="--p:0" data-level-ring><span><small>Nível</small><b data-level-num>1</b></span></div>
+    <div>
+      <h3>Your level</h3>
+      <p><b data-xp>0</b> XP · <span data-next-level>150</span> XP to next level</p>
+    </div>
+  </div>
+  <div class="dash__card dash__goal reveal">
+    <div class="ring ring--sun" style="--p:0" data-goal-ring><span><b data-goal-num>0</b><small>/ 50</small></span></div>
+    <div>
+      <h3>Daily goal</h3>
+      <p data-goal-text>Earn 50 XP today to keep your streak 🔥</p>
+    </div>
+  </div>
+  <div class="dash__card reveal">
+    <div class="dash__big">🔥 <b data-streak>0</b></div>
+    <div><h3>Day streak</h3><p>Come back every day — even 5 minutes helps.</p></div>
+  </div>
+  <div class="dash__card reveal">
+    <div class="dash__big">📚 <b data-learned>0</b></div>
+    <div><h3>Words learned</h3><p>of <?= vocab_count($VOCAB) ?> words in all topics.</p></div>
+  </div>
+</section>
 
-    </body>
-</html>
+<section class="wrap section">
+  <div class="section__head">
+    <h2>Your learning path <span class="lang-ne">· सिक्ने बाटो</span></h2>
+    <a href="learn" class="more">All topics →</a>
+  </div>
+  <div class="path">
+    <?php $i = 0; foreach ($VOCAB as $key => $t): $i++; ?>
+      <a class="path__node reveal" href="learn?topic=<?= $key ?>" style="--c: <?= $t['color'] ?>" data-topic="<?= $key ?>">
+        <span class="path__icon"><?= $t['icon'] ?></span>
+        <span class="path__label"><b><?= e($t['title']) ?></b><small><?= e($t['pt']) ?></small></span>
+        <span class="path__bar"><i style="width:0%"></i></span>
+        <span class="path__count" data-count>0/<?= count($t['words']) ?></span>
+      </a>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section__head">
+    <h2>Everyday conversations <span class="lang-ne">· दैनिक कुराकानी</span></h2>
+    <a href="conversations" class="more">All conversations →</a>
+  </div>
+  <div class="convo-grid">
+    <?php foreach (array_slice($DIALOGUES, 0, 4, true) as $id => $d): ?>
+      <a class="convo-card reveal" href="conversations?id=<?= $id ?>" style="--c: <?= $d['color'] ?>">
+        <span class="convo-card__icon"><?= $d['icon'] ?></span>
+        <span class="convo-card__pt"><?= e($d['pt']) ?></span>
+        <span class="convo-card__en"><?= e($d['title']) ?></span>
+        <span class="convo-card__bubble">“<?= e($d['lines'][0][1]) ?>”</span>
+        <span class="convo-card__done" data-done="<?= $id ?>" hidden>✓ Done</span>
+      </a>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="quiz-banner reveal">
+    <div class="quiz-banner__text">
+      <h2>Ready for a challenge? 🎯</h2>
+      <p>Multiple choice, listening, typing, matching pairs, sentence building and grammar. Earn XP and climb levels!</p>
+      <a class="btn btn--sun btn--lg" href="quiz">Play now</a>
+    </div>
+    <div class="quiz-banner__chips" aria-hidden="true">
+      <span>🔤 Choose</span><span>🎧 Listen</span><span>⌨️ Type</span><span>🧩 Match</span><span>🧱 Build</span><span>📐 Grammar</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section tips">
+  <div class="tip reveal"><span>🇵🇹</span><div><h3>Portugal ≠ Brazil</h3><p>This site teaches the Portuguese spoken in Portugal: <em>autocarro</em> (bus), <em>telemóvel</em> (phone), <em>pequeno-almoço</em> (breakfast), and “estou <b>a</b> trabalhar”.</p></div></div>
+  <div class="tip reveal"><span>🔊</span><div><h3>Listen to everything</h3><p>Tap any 🔊 button to hear the word. Use 🐢 for slow mode. Repeat out loud — speaking is the fastest way to learn.</p></div></div>
+  <div class="tip reveal"><span>🇳🇵</span><div><h3>Nepali helper</h3><p>Vocabulary also shows the meaning in Nepali. You can turn it on or off on the Learn page.</p></div></div>
+</section>
+
+<?php include __DIR__ . '/includes/footer.php'; ?>

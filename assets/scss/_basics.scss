@@ -1,0 +1,97 @@
+// ===== Basics page
+.jump { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; position: sticky; top: 76px; z-index: 10;
+  a { background: #fff; border: 2px solid $line; padding: 7px 14px; border-radius: 99px; text-decoration: none; font-weight: 800; color: $ink; font-size: .9rem; box-shadow: $shadow; transition: .2s;
+    &:hover { border-color: $blue; color: $blue; } }
+  @include md { position: static; }
+}
+.basics { display: grid; gap: 26px; }
+.lesson { background: #fff; border-radius: 26px; padding: 28px; box-shadow: $shadow; scroll-margin-top: 140px;
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; h2 { margin: 0; } }
+  &__no { flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; background: $blue; display: grid; place-items: center; font: 800 1.2rem $font-display; color: #fff; }
+  > p { color: $muted; }
+  @include sm { padding: 20px; }
+}
+.sound-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.sound { display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: $cream; border: 2px solid transparent; border-radius: 16px; padding: 14px; transition: .2s;
+  &:hover { border-color: $blue; background: #fff; transform: translateY(-2px); }
+  &__s { font: 800 1.6rem $font-display; color: $blue; } &__d { font-size: .88rem; color: $muted; } &__ex { margin-top: 6px; font-weight: 800; font-size: .92rem; } }
+
+.article-table { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0 16px; @include sm { grid-template-columns: 1fr; } }
+.at { border-radius: 18px; padding: 16px 18px; display: grid; gap: 4px;
+  b { font: 800 1.1rem $font-display; margin-bottom: 4px; } em { font-style: normal; font-weight: 900; }
+  &--m { background: $blue-l; em { color: $blue; } }
+  &--f { background: #fde9f0; em { color: $pink; } } }
+
+.gender-game { background: $cream; border-radius: 22px; padding: 20px; text-align: center; margin-top: 10px;
+  &__head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; h3 { margin: 0; } }
+  &__score { font-weight: 800; color: $muted; }
+  &__card { display: flex; align-items: baseline; justify-content: center; gap: 12px; flex-wrap: wrap; background: #fff; border-radius: 18px; padding: 26px 16px; margin: 16px auto; max-width: 420px; border: 3px solid $line; transition: border-color .2s;
+    &.is-right { border-color: $green; animation: pop .3s; } &.is-wrong { border-color: $red; animation: shake .35s; } }
+  &__article { font: 800 2.4rem $font-display; color: $muted; min-width: 1ch; &.is-m { color: $blue; } &.is-f { color: $pink; } }
+  &__word { font: 800 2.4rem $font-display; }
+  &__en { width: 100%; color: $muted; font-weight: 700; }
+  &__btns { display: flex; gap: 12px; justify-content: center; }
+  &__msg { min-height: 26px; margin: 14px 0 0; font-weight: 700; }
+}
+
+.versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: stretch; margin-bottom: 16px;
+  @include md { grid-template-columns: 1fr; }
+  &__vs { align-self: center; font: 800 1.4rem $font-display; color: $muted; text-align: center; }
+  &__side { border-radius: 20px; padding: 18px;
+    h3 { font-size: 1.4rem; small { display: block; font: 700 .85rem $font-body; color: $muted; } }
+    ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    li { background: #fff; border-radius: 12px; padding: 8px 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      button { border: 0; background: $blue-l; width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; }
+      small { margin-left: auto; color: $muted; font-weight: 700; font-size: .78rem; } }
+    &--ser { background: $blue-l; h3 { color: $blue; } }
+    &--estar { background: #fff1e8; h3 { color: $terra; } li button { background: #ffe1cf; } } }
+}
+
+.verb-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.verb-tab { border: 2px solid $line; background: #fff; border-radius: 99px; padding: 6px 14px; font-weight: 800; transition: .15s;
+  &.is-active { background: $blue; color: #fff; border-color: $blue; } &:hover:not(.is-active) { border-color: $blue; } }
+.verb-table { border-radius: 18px; overflow: hidden; border: 2px solid $line; animation: pop .3s;
+  &__head { background: $blue; color: #fff; padding: 12px 16px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    b { font: 800 1.3rem $font-display; } .btn { margin-left: auto; } } }
+.verb-row { display: grid; grid-template-columns: 1fr auto 40px; align-items: center; width: 100%; text-align: left; background: #fff; border: 0; border-top: 1px solid $line; padding: 12px 16px; transition: background .15s;
+  &:hover { background: $blue-l; }
+  &__p { font-weight: 700; small { color: $muted; font-weight: 600; margin-left: 6px; @include sm { display: block; margin: 0; } } }
+  &__f { font: 800 1.25rem $font-display; color: $blue-d; }
+  &__s { text-align: right; } }
+
+.cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; @include md { grid-template-columns: 1fr; } }
+.mini { background: $cream; border-radius: 18px; padding: 16px; > span { font-size: 2rem; } > b { display: block; font: 800 1.3rem $font-display; color: $blue; } p { margin: 4px 0 0; color: $muted; font-size: .93rem; } }
+
+.combine { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.combine__item { display: flex; flex-direction: column; gap: 4px; text-align: left; background: $cream; border: 2px solid transparent; border-radius: 16px; padding: 14px; transition: .2s;
+  &:hover { border-color: $terra; background: #fff; }
+  i { font-style: normal; font-weight: 700; color: $muted; } b { font: 800 1.4rem $font-display; color: $terra; } }
+.combine__ex { font-weight: 700; font-size: .92rem; }
+
+.qwords { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+.qword { display: flex; flex-direction: column; text-align: left; gap: 2px; background: $blue-l; border: 2px solid transparent; border-radius: 16px; padding: 14px; transition: .2s;
+  &:hover { border-color: $blue; transform: translateY(-2px); }
+  b { font: 800 1.25rem $font-display; color: $blue-d; } span { color: $muted; font-weight: 700; } small { margin-top: 6px; font-weight: 700; } }
+
+// ===== Phrasebook
+.pb-tools { display: grid; gap: 14px; margin-bottom: 26px; position: sticky; top: 68px; z-index: 10; background: rgba($cream, .94); padding: 12px 0; backdrop-filter: blur(8px); }
+.search { display: flex; align-items: center; gap: 10px; background: #fff; border: 2px solid $line; border-radius: 16px; padding: 0 16px; transition: border-color .2s;
+  &:focus-within { border-color: $blue; box-shadow: 0 0 0 4px rgba($blue, .1); }
+  input { flex: 1; border: 0; outline: 0; font: 700 1.05rem $font-body; padding: 14px 0; background: transparent; min-width: 0; } }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chipf { background: #fff; border: 2px solid $line; border-radius: 99px; padding: 6px 14px; font-weight: 800; font-size: .9rem; &.is-active { background: $ink; color: #fff; border-color: $ink; } }
+.pb-group { margin-bottom: 30px; h2 { font-size: 1.4rem; } }
+.pb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; @include sm { grid-template-columns: 1fr; } }
+.phrase { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 16px; padding: 12px 14px; box-shadow: $shadow; transition: transform .2s;
+  &:hover { transform: translateY(-2px); }
+  &__say { flex-shrink: 0; width: 46px; height: 46px; border-radius: 14px; border: 0; background: $blue; color: #fff; font-size: 1.15rem; box-shadow: 0 3px 0 $blue-d; &:active { transform: translateY(2px); box-shadow: none; } }
+  &__slow { flex-shrink: 0; border: 0; background: $blue-l; width: 36px; height: 36px; border-radius: 10px; }
+  &__text { flex: 1; display: flex; flex-direction: column; b { font-size: 1.05rem; } span { color: $muted; font-size: .92rem; } } }
+.pb-empty { text-align: center; font-weight: 800; color: $muted; padding: 40px 0; }
+
+@include sm {
+  .sound-grid, .qwords { grid-template-columns: 1fr 1fr; }
+  .sound__s { font-size: 1.35rem; }
+  .gender-game__word, .gender-game__article { font-size: 2rem; }
+  .gender-game__btns .btn { padding: 12px 16px; font-size: 1rem; }
+}
